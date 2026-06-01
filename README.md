@@ -109,6 +109,10 @@ skills/
     └── references/
 ```
 
+## About
+
+`product-launch-video-skill` is developed by [Memex Lab](https://www.memexlab.ai/). Visit our homepage for more projects and updates.
+
 ## License
 
 MIT
