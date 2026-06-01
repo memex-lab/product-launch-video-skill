@@ -1,7 +1,5 @@
 # Product Launch Video Skill
 
-[![skills.sh](https://skills.sh/b/memex-lab/product-launch-video-skill)](https://skills.sh/memex-lab/product-launch-video-skill)
-
 Create cinematic product launch videos with an AI coding agent.
 
 `product-launch-video` helps an agent turn a rough product brief, screenshots, demo recordings, photos, or brand assets into a storyboarded, art-directed Remotion launch video. It is designed for work that needs more than animated slides: stronger concepting, sharper pacing, deliberate motion, generated assets, voiceover direction, and final render review.
@@ -10,7 +8,9 @@ Use it for product trailers, feature announcements, promo videos, demo videos, b
 
 ## Example Output
 
-[![Watch a launch video created with this skill](https://img.youtube.com/vi/oX-KnoRbAM0/hqdefault.jpg)](https://www.youtube.com/watch?v=oX-KnoRbAM0)
+<a href="https://www.youtube.com/watch?v=oX-KnoRbAM0">
+  <img src="https://img.youtube.com/vi/oX-KnoRbAM0/maxresdefault.jpg" alt="Watch a launch video created with this skill" width="760">
+</a>
 
 Watch a sample product launch video created with this skill on [YouTube](https://www.youtube.com/watch?v=oX-KnoRbAM0).
 
@@ -108,3 +108,7 @@ skills/
     ├── scripts/
     └── references/
 ```
+
+## License
+
+MIT
