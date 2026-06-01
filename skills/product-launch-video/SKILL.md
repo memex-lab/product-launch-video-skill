@@ -44,10 +44,11 @@ Ask the user (all at once, don't drip-feed questions):
 6. **Assets** — Do you have logos, product photos, screenshots, recordings, brand colors, or fonts?
 7. **Voiceover** — Should the video have narration? If yes, what language? Any preference on voice character (gender, tone, energy level)?
 8. **Reference** — Any videos you admire? (Apple keynote style, Nike product films, Stripe developer aesthetic, playful Notion vibes, luxury watch commercials, etc.)
+9. **Publishing Context** — Where will this video be posted? (Landing page, X/Twitter, LinkedIn, YouTube, Shorts/Reels/TikTok, investor deck, internal demo.) Aspect ratio, captions, and pacing depend on this.
 
 If the user already provided context in the conversation, extract answers from what's there and confirm gaps.
 
-**GATE: Do not proceed to Phase 1 until you have answers (from the user or inferred from context) for all 8 questions above. If assets are provided, audit them — list every available asset and plan to use each one where it strengthens the narrative. Not every asset must appear, but none should be ignored without reason.**
+**GATE: Do not proceed to Phase 1 until you have answers (from the user or inferred from context) for all 9 questions above. If assets are provided, audit them — list every available asset and plan to use each one where it strengthens the narrative. Not every asset must appear, but none should be ignored without reason.**
 
 ---
 
@@ -121,11 +122,17 @@ For longer videos (60s+), expand Showcase with more feature beats and add a "soc
 
 Plan the video structure before writing a single line of code. A storyboard is the contract between creative vision and technical execution.
 
+### Publishing & Feed Rules
+
+- **Show the product early.** In launch, demo, and social formats, the viewer should see the product, product interface, or unmistakable product artifact within the first 3 seconds. Abstract hooks are allowed only if they immediately resolve into the product.
+- **Design for muted playback.** If the video may appear in a feed, assume many viewers will watch without sound. Key claims, scene beats, captions, and CTAs must be visible on screen, even when voiceover exists.
+
 ### Video Metadata
 
 Before building, document these decisions:
 
 - **Duration, FPS, Resolution** — derived from Phase 0
+- **Publishing Context** — derived from Phase 0. Note where the video will be posted and any constraints that affect pacing, captions, safe areas, or deliverables.
 - **Display Font + Body Font** — from Phase 1 aesthetic direction (with weights)
 - **Color Palette** — define roles, not just colors: background, surface (elevated elements), primary (headlines), muted (secondary text), accent (CTAs/highlights), highlight (special moments). Each role should have a clear usage rule.
 
@@ -236,6 +243,8 @@ Verify before moving to Phase 3:
 - [ ] Color palette is documented with roles
 - [ ] If video has voiceover: voice profile tags are defined in `voice` object, every scene has `voiceover` text or `null`, and word count fits scene duration (~2.5 words/sec)
 - [ ] The first 3 seconds are compelling enough to stop a scroll
+- [ ] The product, UI, or concrete product artifact appears within the first 3 seconds unless this is an intentional teaser
+- [ ] If the video may be viewed muted, key narration points and CTAs also appear visually
 - [ ] Scene transitions are defined and motivated
 - [ ] No two consecutive showcase scenes use the same layout or animation pattern
 - [ ] Scenes with 3+ items use a deliberate choreography pattern (not just staggered fade-in)
@@ -747,6 +756,8 @@ Before rendering, verify every item. This is the final quality gate.
 - [ ] Key elements are anchored to structural grid lines (thirds, golden ratio), not arbitrarily centered
 - [ ] At least one leading line (light beam, edge, gradient direction) points toward the focal element per scene
 - [ ] Text is readable: minimum 32px for headlines, 20px for body, high contrast
+- [ ] Feed-readability pass: text remains legible at phone-feed size, not just in a full-screen desktop preview
+- [ ] Captions/key overlays are burned into the composition when the target platform commonly autoplays muted
 - [ ] The brightest/highest-contrast point in each frame is the focal element
 - [ ] Typography hierarchy is consistent across scenes
 - [ ] Font choices match the product's personality (serif↔luxury, grotesque↔tech, mono↔developer)
@@ -774,12 +785,17 @@ Before rendering, verify every item. This is the final quality gate.
 # Preview in browser
 npx remotion studio
 
+# Example: render a representative frame for layout audit
+npx remotion still [CompositionId] out/frame-check.png --frame 60
+
 # Render final video
 npx remotion render [CompositionId] out/video.mp4
 
 # Render at specific quality
 npx remotion render [CompositionId] out/video.mp4 --codec h264 --crf 18
 ```
+
+Before the full render, export at least one representative frame from each scene and inspect them as images. Fix layout, crop, overlap, text truncation, and contrast problems before spending time on a full video render.
 
 After rendering, tell the user:
 - File location and size
